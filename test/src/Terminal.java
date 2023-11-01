@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Terminal {
     private static Parser p = new Parser();
 
-
+//gfd
     public static void ls(){
         File f = new File(pwd());
         File [] list = f.listFiles();
