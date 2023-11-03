@@ -28,6 +28,22 @@ public class Parser {
 
                 String arg = "";
                 for (int i = temp+1+check; i < input.length(); i++) {
+
+                    if (input.charAt(i) == '"' && input.charAt(i-1) == '\\' ){
+
+                        for (int k = i+1; k < input.length(); k++) {
+                            if (input.charAt(k) == '"' && input.charAt(k+1) == '\\'){
+                                i = k+1;
+                                break;
+                            }
+
+                            else
+                                arg += input.charAt(k);
+                        }
+
+
+                    }
+
                     if (input.charAt(i) == ' '){
 
                         cmd_args.add(arg);
@@ -58,7 +74,6 @@ public class Parser {
             return false;
 
     }
-
     public String getCmd_name(){
         return cmd_name;
     }
